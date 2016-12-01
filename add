@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Add Customer.</title>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+	<script type="text/javascript">
+		function validateForm(){
+			var Xname = document.forms["registForm"]["Uname"].value;
+			var Xlast = document.forms["registForm"]["lastname"].value;
+			var Xgender = document.forms["registForm"]["gender"].value;
+			var Xaddress = document.forms["registForm"]["address"].value;
+			var Xpostcode = document.forms["registForm"]["postcode"].value;
+			var Xphone = document.forms["registForm"]["phone"].value;
+			var Xmail = document.forms["registForm"]["mail"].value;
+			var Xdescription = document.forms["registForm"]["description"].value;
+			var Xid = document.forms["registForm"]["id"].value;
+			var Xpassword = document.forms["registForm"]["password"].value;
+			var Xcheckpassword = document.forms["registForm"]["checkpassword"].value;
+			if (Xname == ""){
+				alert("Emtry !!");
+				return false;
+			}
+			else if (Xlast == "") {
+				alert("Emtry !!");
+				return false;
+			}
+			else if (Xgender == "") {
+				alert("Emtry !!");
+				return false;
+			}
+			else if (Xaddress == "") {
+				alert("Emtry !!");
+				return false;
+			}	
+			else if (Xpostcode == "") {
+				alert("Emtry !!");
+				return false;
+			}
+			else if (Xphone == "") {
+				alert("Emtry !!");
+				return false;
+			}
+			else if (Xmail == "") {
+				alert("Emtry !!");
+				return false;
+			}
+			else if (Xdescription == "") {
+				alert("Emtry !!");
+				return false;
+			}
+			else if (Xid == "") {
+				alert("Emtry !!");
+				return false;
+			}
+			else if (Xpassword == "") {
+				alert("Emtry !!");
+				return false;
+			}
+			else if (Xcheckpassword == "") {
+				alert("Emtry !!");
+				return false;
+			}	
+		}
+	</script>
+</head>
+	<link rel="stylesheet" type="text/css" href="box.css">
+	<link rel="stylesheet" type="text/css" href="fieldset.css">
+<center>
+<body>
+	<form name="registForm" action="Lab7_55543206032-8.php" method="post" id="formadd" onsubmit="return validateForm()">
+	<div class="box1">
+		<div style="text-align: left;">Add Customer</div>
+		<fieldset>
+		<table bgcolor="" align="left" border="0" width="">
+			<legend>Register</legend>
+			<tr><!--name-->
+				<td>Name :</td>
+				<td><input type="text" name="Uname"></td>
+			</tr>
+			<tr><!--last name-->
+				<td>Last Name :</td>
+				<td><input type="text" name="lastname"></td>
+			</tr>
+			<tr>
+				<td>Gender :</td>
+				<td><input type="radio" name="gender" value="male">Male<input type="radio" name="gender" value="female">Female</td>
+			</tr>
+			<tr>
+				<td>Birth Day :</td>
+				<td><?php
+					for ($i = 1; $i <= 31; $i++){
+						$arDays[] = $i;
+					}
+					echo '<select name="day">';
+					foreach ($arDays as $option) {
+						echo '<option value="'.$option.'">'.$option.'</option>';
+					}
+					echo '</select>';
+				?>
+				<select name="month">
+				<option value="01">Jan</option>
+				<option value="02">Feb</option>
+				<option value="03">Mar</option>
+				<option value="04">Apr</option>
+				<option value="05">May</option>
+				<option value="06">Jun</option>
+				<option value="07">Jul</option>
+				<option value="08">Aug</option>
+				<option value="09">Sep</option>
+				<option value="10">Oct</option>
+				<option value="11">Nov</option>
+				<option value="12">Dec</option>
+				</select>
+				<?php
+				$currentYear = date("Y");
+				for ($i = $currentYear; $i >= 1920; $i--){
+					$arYears[] = $i;
+				}
+				echo '<select name="year">';
+				foreach ($arYears as $option) {
+						echo '<option value="'.$option.'">'.$option.'</option>';
+				}
+				echo '</select>';
+				?>
+				</td>
+
+			</tr>
+			<tr>
+				<td>Address :</td>
+				<td><input type="text" name="address" style="width: 250px;"></td>
+			</tr>
+			<tr>
+				<td>Province :</td>
+				<td>
+					<select name="province">
+						<option value="na">--Povince--</option>
+						<option value="chiangrai">Chiang rai</option>
+						<option value="chiangmai">chiang mai</option>
+						<option value="nan">Nan</option>
+						<option value="phayao">Phayao</option>
+						<option value="phrae">Phrae</option>
+						<option value="maehongson">Mae hong son</option>
+						<option value="lampang">Lampang</option>
+						<option value="lamphun">Lamphun</option>
+						<option value="uttaradit">Uttaradit</option>
+					</select>
+				</td>
+			</tr>
+			<tr>
+				<td>Post Code :</td>
+				<td><input type="text" name="postcode" style="width: 50px;"></td>
+			</tr>
+			<tr>
+				<td>Phone Number :</td>
+				<td><input type="text" name="phone" style="width: 80px;"></td>
+			</tr>
+			<tr>
+				<td>Email :</td>
+				<td><input type="text" name="mail" style="width: 200px"></td>
+			</tr>
+			<tr>
+				<td>Description :</td>
+				<td><input type="text" name="description" style="width: 300px"></td>
+			</tr>
+		</table>	
+		</fieldset>
+		<fieldset>
+			<legend> Account info.</legend>
+			<table bgcolor="" align="left" border="0" width="">
+			<tr>
+				<td>ID :</td>
+				<td><input type="text" name="id" style="width: 90px;"></td>
+			</tr>
+			<tr>
+				<td>Password :</td>
+				<td><input type="Password" name="password" style="width: 90px;"></td>
+			</tr>
+			<tr>
+				<td>Confirm Password :</td>
+				<td><input type="password" name="checkpassword" style="width: 90px;"></td>
+			</tr>
+			<input type="hidden" name="hide" value="1">
+			</table>
+		</fieldset>
+		<input type="submit" name="submitForm" value="submit" form="formadd">
+		<!--<button type="submit" form="formadd" value="submit">Submit</button>-->&nbsp;&nbsp;
+		<button onclick="goBack()">Cancel</button>
+		<script>
+			function goBack() {
+    		window.history.back();
+			}
+		</script>
+		</form>
+	</div>
+</body>
+</center>
+</html>
