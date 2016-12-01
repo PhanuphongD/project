@@ -1,0 +1,41 @@
+<?php
+	session_start();
+	$host = "localhost";
+	$user = "root";
+	$pass = "1234";
+	$dbname = "mystore";
+	$conn = new mysqli($host,$user,$pass,$dbname);
+	if ($conn->connect_error) {
+    	die("Connection failed: " . $con->connect_error);
+	} 
+	$strSQL = "SELECT * FROM member WHERE member.memuser = '{$_POST['txtUsername']}' and member.mempass = '{$_POST['txtPassword']}'";
+	$result = mysqli_query($conn,$strSQL);
+	//$result = mysql_query($strSQL);
+	//echo $strSQL;
+	//$objResult = mysql_fetch_array($objQuery);
+
+	$i=0;
+	while ($row = mysqli_fetch_array($result) ) 
+   	{
+		$data=$row;
+		$i++;
+	}
+
+	if($i==0)
+	{
+
+			header('location:Lab7_55543206032-8.php');
+	}
+	else
+	{
+			//echo "<pre>";
+			//print_r($data);
+			$_SESSION["UserID"] = $data["memuser"];
+			//$_SESSION["Status"] = $objResult["Status"];
+
+			session_write_close();
+			header("location:Lab7_55543206032-8.php");
+			
+	}
+	$conn->close();	
+?>
