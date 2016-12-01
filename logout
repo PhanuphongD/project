@@ -1,0 +1,10 @@
+<?php
+	session_start();
+	session_destroy();
+
+	echo "<center>";
+	echo "ลงชื่อเข้าใช้อีกครั้ง<br>";
+	echo "<a href='./login.php'>LOGIN</a>";
+	echo "</center>";
+
+?>
