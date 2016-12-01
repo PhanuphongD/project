@@ -10,9 +10,6 @@
 	} 
 	$strSQL = "SELECT * FROM member WHERE member.memuser = '{$_POST['txtUsername']}' and member.mempass = '{$_POST['txtPassword']}'";
 	$result = mysqli_query($conn,$strSQL);
-	//$result = mysql_query($strSQL);
-	//echo $strSQL;
-	//$objResult = mysql_fetch_array($objQuery);
 
 	$i=0;
 	while ($row = mysqli_fetch_array($result) ) 
