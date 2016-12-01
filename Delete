@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+	<?php
+		
+		$id = $_GET['id'];
+		$host = "localhost";
+		$user = "root";
+		$pass = "1234";
+		$dbname = "mystore";
+		$conn = new mysqli($host,$user,$pass,$dbname);
+		$sql2 = "SELECT * FROM customer WHERE Customer_id =$id";
+	?>
+<html>
+<head>
+	<title>Delete</title>
+</head>
+<body>
+	<form action="Lab7_55543206032-8.php" name="formdel" method="post">
+	<?php
+		echo "Comfirm Delete!!<br>";
+		$result = mysqli_query($conn,$sql2);
+		if(mysqli_num_rows($result) > 0){
+			while ($row = mysqli_fetch_assoc($result)) {
+				echo "ID : ".$row["Customer_id"]."&nbsp&nbsp&nbspName : ".$row["Customer_Name"].$row["Customer_Lastname"]."&nbsp&nbsp&nbspProvince : ".$row["Province"]."&nbsp&nbsp&nbspPhone : ".$row["Telephone"];
+			}
+		}
+	$conn->close();
+	?><br>
+	<input type="hidden" name="del" value="<?php echo $id;?>">
+	<button type="submit" name="formdel" value="submit">Delete</button>
+		<button onclick="goBack()">Cancel</button>
+		<script>
+			function goBack() {
+    		window.history.back();
+			}
+		</script>
+	</form>
+</body>
+</html>
